@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    data = json.dumps({"user":"guest", "message":"hacker easy"})
-    fg = base64.b64encode(data.encode("utf-8"))
+    dp = json.dumps({"user":"guest", "message":"hacker easy"})
+    fg = base64.b64encode(dp.encode("utf-8"))
     resp=make_response(render_template("index.html"))
     resp.set_cookie('ctf.flag', fg)
     if request.method == "DELETE":
