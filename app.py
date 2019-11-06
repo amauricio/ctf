@@ -1,6 +1,6 @@
 from flask import Flask, session, request,jsonify, make_response,render_template
 import json
-Import base64
+import base64
 app = Flask(__name__)
 
 @app.route("/")
