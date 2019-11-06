@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    dp = json.dumps({"user":"guest", "message":"hacker easy"})
+    dp = json.dumps({"user":"guest", "message":"hacker easy not admin"})
     fg = base64.b64encode(dp.encode("utf-8"))
     resp=make_response(render_template("index.html"))
     resp.set_cookie('ctf.flag', fg)
@@ -18,5 +18,9 @@ def index():
             except:
                 return "Bad cookie"
     return resp
+@app.route("/hacker")
+def hacker():
+    return "flag{ctf_flag_82628252}"
+
 if __name__ =="__main__":
     app.run(port=80, host="0.0.0.0")
