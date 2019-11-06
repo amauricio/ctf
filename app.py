@@ -3,7 +3,7 @@ import json
 import base64
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "DELETE"])
 def index():
     dp = json.dumps({"user":"guest", "message":"hacker easy not admin"})
     fg = base64.b64encode(dp.encode("utf-8"))
